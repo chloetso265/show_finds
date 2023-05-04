@@ -1,0 +1,43 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.header {
+  padding: $mobile-padding;
+
+  &__section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 7rem;
+  }
+
+  &__title {
+    padding-left: 0.5rem;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__search {
+    padding: 0.5rem 1rem;
+    border-radius: 5rem;
+    border-color: black;
+  }
+
+  &__image {
+    width: 3rem;
+    background-color: rgb(221, 220, 220);
+    border-radius: 10rem;
+    margin-left: 1rem;
+  }
+}

@@ -1,16 +1,12 @@
 import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Header from "./components/Header/Header";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <h1>Show Finds</h1>
-        <h2>Home</h2>
-        <h2>Discover</h2>
-        <h2>Recommended</h2>
-        {/* <Header /> */}
+        <Header />
         {/* <Routes>
             <Route path="/" element={<Warehouses />} />
             <Route path="/edit" element={<EditWarehouse />} />
@@ -27,6 +23,9 @@ function App() {
             <Route path="/inventories/:id" element={<ItemDetail />} />
           </Routes>
         <Footer /> */}
+        <h3>Home</h3>
+        <h3>Discover</h3>
+        <h3>Recommended</h3>
       </BrowserRouter>
     </div>
   );
