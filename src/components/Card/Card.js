@@ -1,16 +1,16 @@
 import "./Card.scss";
 
-function Card() {
+function Card({ shows }) {
   return (
     <section className="show__cards">
       <div className="homepage__shows">
         <div>
-          <p>AUG 26</p>
-          <p>Sat - 8:00pm</p>
+          <p>{shows.dates.start.localDate}</p>
+          <p>{shows.dates.start.localTime}</p>
         </div>
         <div>
-          <p>Barclays Center - Brooklyn, NY</p>
-          <p>Chance The Rapper: Acid Rap 10 Year Anniversary Show</p>
+          <p>{shows._embedded.venues[0].name}</p>
+          <p>{shows.name}</p>
         </div>
         <div>
           <span>See Tickets</span>
