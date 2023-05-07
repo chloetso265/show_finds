@@ -1,4 +1,5 @@
 import "./Homepage.scss";
+import Card from "../../components/Card/Card";
 import axios from "axios";
 
 function Homepage() {
@@ -11,7 +12,6 @@ function Homepage() {
         <h4>Recommended</h4>
       </article>
       <article className="homepage__main">
-        {/* <Card /> */}
         <h2>Trending Now</h2>
         <div className="homepage__shows">
           <div>
@@ -26,6 +26,7 @@ function Homepage() {
             <span>See Tickets</span>
           </div>
         </div>
+        <Card />
       </article>
     </section>
   );
