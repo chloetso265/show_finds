@@ -1,0 +1,19 @@
+.artists {
+  &__info {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__photo {
+    background-image: url("https://s1.ticketm.net/dam/a/4c8/cee4224d-ed9f-4267-81a4-61be2a1f44c8_CUSTOM.jpg");
+    opacity: 70%;
+    margin: 1rem;
+    padding: 3rem 5.5rem;
+    border: 1px solid black;
+    border-radius: 2.5rem;
+  }
+
+  &__name {
+    vertical-align: bottom;
+  }
+}
