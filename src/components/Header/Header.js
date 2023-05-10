@@ -13,7 +13,8 @@ function Header() {
         <div className="header__right">
           <input
             className="header__search"
-            type="text"
+            name="search"
+            type="search"
             placeholder="Search..."
           ></input>
           <img className="header__image" src={account} alt="user-icon" />

@@ -2,6 +2,8 @@ import "./Bubble.scss";
 import { Link } from "react-router-dom";
 
 function Bubble({ artists }) {
+  // console.log({artists.images[0]});
+
   return (
     <section className="artists">
       <article className="artists__info">
@@ -9,6 +11,7 @@ function Bubble({ artists }) {
           <h3 className="artists__name">{artists.name}</h3>
         </div> */}
         <div className="artists__photo">
+          {/* <img src={artists.images[0]}></img> */}
           <h3 className="artists__name">blink-182</h3>
         </div>
         <div className="artists__photo">

@@ -2,6 +2,7 @@ import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Homepage from "./pages/Homepage/Homepage";
+// import Search from "./pages/Search/Search";
 
 function App() {
   return (
@@ -10,9 +11,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Homepage />} />
+          {/* <Route path="/search" element={<Search />} /> */}
           {/* <Route path="/edit" element={<EditWarehouse />} />
             <Route path="/:id" element={<WarehouseDetails />} />
-            <Route path="/addWarehouse" element={<AddWarehouse />} />
             <Route path="/deleteWarehouse" element={<DeleteWarehouse />} />
             <Route
               path="/inventories/delete"

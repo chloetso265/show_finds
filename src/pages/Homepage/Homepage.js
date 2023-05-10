@@ -19,7 +19,7 @@ function Homepage() {
       )
       .then((result) => {
         const showsArray = result.data._embedded.events;
-        // console.log(showsArray);
+        console.log(showsArray);
         setShows(showsArray);
       });
   }, []);
@@ -65,7 +65,7 @@ function Homepage() {
         </div> */}
         {/* <Card shows={shows} /> */}
         {shows.map((show) => {
-          return <Card shows={show} />;
+          return <Card key={show.id} shows={show} />;
         })}
         <h2>Discover</h2>
         <Bubble />
