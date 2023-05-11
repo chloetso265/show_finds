@@ -1,0 +1,16 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.homepage {
+  display: flex;
+
+  &__main {
+    flex-grow: 1;
+  }
+
+  &__shows {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
