@@ -5,18 +5,30 @@
   display: flex;
 
   &__filter {
-    padding: $mobile-padding;
-    display: block;
+    display: none;
+
+    @include tablet {
+      padding: $mobile-padding;
+      display: block;
+    }
   }
 
   &__main {
     flex-grow: 1;
   }
 
+  &__trending {
+    margin: 1.5rem;
+  }
+
   &__shows {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+  }
+
+  &__title {
+    padding: 1.5rem;
   }
 }
 

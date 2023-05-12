@@ -40,6 +40,8 @@ function Homepage() {
     return <div>loading</div>;
   }
 
+  //   console.log(shows._embedded.venues[0].name);
+
   //   function collapsible() {
   //     const location = document.getElementsByClassName("collapsible");
   //     location.addEventListener("click", () => {
@@ -88,18 +90,22 @@ function Homepage() {
         <h4>Genre</h4>
       </article>
       <article className="homepage__main">
-        <h2>Trending Now</h2>
+        <h2 className="homepage__title">Trending Now</h2>
         {/* <Card shows={shows} /> */}
         {shows.map((show) => {
           return (
-            <Card
-              key={show.id}
-              date={show.dates.start.localDate}
-              time={show.dates.start.localTime || "TBD"}
-              venue={show._embedded.venues[0].name}
-              name={show.name}
-              price={show.priceRanges?.[0]}
-            />
+            <div className="homepage__trending">
+              <Card
+                key={show.id}
+                date={show.dates.start.localDate}
+                time={show.dates.start.localTime || "TBD"}
+                venue={show._embedded.venues[0].name}
+                // city={show._embedded.venues[0].city}
+                // state={show._embedded.venues[0].state.name}
+                name={show.name}
+                price={show.priceRanges?.[0]}
+              />
+            </div>
           );
         })}
         <h2>Discover</h2>
