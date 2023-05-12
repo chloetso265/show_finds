@@ -19,7 +19,7 @@ function Homepage() {
       )
       .then((result) => {
         const showsArray = result.data._embedded.events;
-        // console.log(showsArray);
+        console.log(showsArray);
         setShows(showsArray);
       });
   }, []);
@@ -31,7 +31,7 @@ function Homepage() {
       )
       .then((result) => {
         const artistsArray = result.data._embedded.attractions;
-        console.log(artistsArray);
+        // console.log(artistsArray);
         setArtists(artistsArray);
       });
   }, []);
@@ -40,13 +40,52 @@ function Homepage() {
     return <div>loading</div>;
   }
 
+  //   function collapsible() {
+  //     const location = document.getElementsByClassName("collapsible");
+  //     location.addEventListener("click", () => {
+  //         if (className !=== "collapsible__active") {
+  //             location.classList.add("collapsible__active")
+  //         } else {
+  //             location.classList.remove("collapsible__active")
+  //         }
+  //     })
+  //   }
+  //   var coll = document.getElementsByClassName("collapsible");
+  //   var i;
+
+  //   for (i = 0; i < coll.length; i++) {
+  //     coll[i].addEventListener("click", function () {
+  //       this.classList.toggle("active");
+  //       var content = this.nextElementSibling;
+  //       if (content.style.display === "block") {
+  //         content.style.display = "none";
+  //       } else {
+  //         content.style.display = "block";
+  //       }
+  //     });
+  //   }
+
   return (
     <section className="homepage">
-      <article>
+      <article className="homepage__filter">
         <p>Filter Section</p>
-        <h4>Home</h4>
-        <h4>Discover</h4>
-        <h4>Recommended</h4>
+        <button type="button" class="collapsible">
+          Location
+        </button>
+        <div className="content">
+          <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+          <label for="vehicle1"> New York</label>
+        </div>
+        <div className="content">
+          <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
+          <label for="vehicle2"> New Jersey</label>
+        </div>
+        <div className="content">
+          <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
+          <label for="vehicle3"> Connecticut</label>
+          {/* <input type="submit" value="Submit" /> */}
+        </div>
+        <h4>Genre</h4>
       </article>
       <article className="homepage__main">
         <h2>Trending Now</h2>

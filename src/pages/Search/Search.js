@@ -30,15 +30,17 @@ function Search() {
         `https://api.seatgeek.com/2/events?q=chance+the+rapper&client_id=MzM1Mzk0Nzh8MTY4MzU3NTg3NC4wMDAzMDUy`
       )
       .then(({ data }) => {
-        const other = data.events;
-        console.log(other);
-        setCompare(other);
+        const compare = data.events;
+        console.log(compare);
+        setCompare(compare);
       });
   }, []);
 
-  if (!events) {
+  if (!events || !compare) {
     return <div>loading</div>;
   }
+
+  console.log(compare[0].datetime_local);
 
   return (
     <section className="homepage">
@@ -49,19 +51,6 @@ function Search() {
         <h4>Recommended</h4>
       </article>
       <article className="homepage__main">
-        <div className="homepage__shows">
-          <div>
-            <p>AUG 26</p>
-            <p>Sat - 8:00pm</p>
-          </div>
-          <div>
-            <p>Barclays Center - Brooklyn, NY</p>
-            <p>Chance The Rapper: Acid Rap 10 Year Anniversary Show</p>
-          </div>
-          <div>
-            <span>See Tickets</span>
-          </div>
-        </div>
         {events.map((event) => {
           return (
             <Card
@@ -74,6 +63,21 @@ function Search() {
             />
           );
         })}
+        <div className="homepage__shows">
+          <div>
+            <p>{compare[0].datetime_local}</p>
+            <p>Sat - 8:00pm</p>
+          </div>
+          <div>
+            <p>{compare[0].venue.name}</p>
+            <p>{compare[0].short_title}</p>
+          </div>
+          <div>
+            <span>
+              Tickets Starting From : ${compare[0].stats.lowest_price}
+            </span>
+          </div>
+        </div>
       </article>
     </section>
   );

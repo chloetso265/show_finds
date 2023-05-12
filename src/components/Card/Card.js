@@ -10,7 +10,6 @@ function Card({ date, time, venue, name, price = null }) {
   return (
     <section className="show__cards">
       <div className="show__info">
-        <h3>Ticketmaster</h3>
         <div>
           <p>{date}</p>
           <p>{time}</p>
@@ -19,6 +18,9 @@ function Card({ date, time, venue, name, price = null }) {
           <p>{venue}</p>
           <p>{name}</p>
         </div>
+      </div>
+      <div className="show__info">
+        <h3>Ticketmaster</h3>
         <div>
           {price && (
             <p>
@@ -30,6 +32,9 @@ function Card({ date, time, venue, name, price = null }) {
       </div>
       <div className="show__info">
         <h3>SeatGeek</h3>
+        <p>Tickets Starting From : $140</p>
+        {/* {tkPrices !== null && <div ... ticketmaster prices stuff ... </div>}
+      {sgPrices !== null && <div ... seatgeek prices stuff ... </div>} */}
       </div>
     </section>
   );
