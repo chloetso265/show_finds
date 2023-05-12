@@ -5,12 +5,22 @@
   }
 
   &__photo {
-    background-image: url("https://s1.ticketm.net/dam/a/4c8/cee4224d-ed9f-4267-81a4-61be2a1f44c8_CUSTOM.jpg");
-    opacity: 70%;
+    // background-image: url("https://s1.ticketm.net/dam/a/4c8/cee4224d-ed9f-4267-81a4-61be2a1f44c8_CUSTOM.jpg");
+    position: relative;
     margin: 1rem;
     padding: 3rem 5.5rem;
     border: 1px solid black;
     border-radius: 2.5rem;
+    overflow: hidden;
+  }
+
+  &__image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    opacity: 70%;
+    z-index: -1;
   }
 
   &__name {

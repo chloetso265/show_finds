@@ -19,7 +19,7 @@ function Homepage() {
       )
       .then((result) => {
         const showsArray = result.data._embedded.events;
-        console.log(showsArray);
+        // console.log(showsArray);
         setShows(showsArray);
       });
   }, []);
@@ -52,13 +52,22 @@ function Homepage() {
         <h2>Trending Now</h2>
         {/* <Card shows={shows} /> */}
         {shows.map((show) => {
-          return <Card key={show.id} shows={show} />;
+          return (
+            <Card
+              key={show.id}
+              date={show.dates.start.localDate}
+              time={show.dates.start.localTime || "TBD"}
+              venue={show._embedded.venues[0].name}
+              name={show.name}
+              price={show.priceRanges?.[0]}
+            />
+          );
         })}
         <h2>Discover</h2>
-        <Bubble />
-        {/* {artists.map((artist) => {
+        {/* <Bubble /> */}
+        {artists.map((artist) => {
           return <Bubble artists={artist} />;
-        })} */}
+        })}
       </article>
     </section>
   );

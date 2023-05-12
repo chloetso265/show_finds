@@ -1,26 +1,44 @@
 import "./Search.scss";
-// import Card from "../../components/Card/Card";
+import Card from "../../components/Card/Card";
 // import { Link } from "react-router-dom";
-// import axios from "axios";
-// import { useState, useEffect } from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
-// const api_key = "YActy3kuBuQhgG62frGlgAfNjoVpXP73";
+const BASE_URL = "https://app.ticketmaster.com/discovery/v2/events.json";
+const API_KEY = "YActy3kuBuQhgG62frGlgAfNjoVpXP73";
+const CLIENT_KEY = "MzM1Mzk0Nzh8MTY4MzU3NTg3NC4wMDAzMDUy";
+const keyword = "chance the rapper";
+// console.log(`${BASE_URL}?keyword=${keyword}&apikey=${API_KEY}`);
 
 function Search() {
-  //     const [shows, setShows] = useState([]);
-  //   const [artists, setArtists] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [compare, setCompare] = useState([]);
 
-  //   useEffect(() => {
-  //     axios
-  //       .get(
-  //         `https://app.ticketmaster.com/discovery/v2/events?apikey=${keyT}&locale=*`
-  //       )
-  //       .then((result) => {
-  //         const showsArray = result.data._embedded.events;
-  //         console.log(showsArray);
-  //         setShows(showsArray);
-  //       });
-  //   }, []);
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}?keyword=${keyword}&apikey=${API_KEY}`)
+      .then(({ data }) => {
+        const events = data?._embedded?.events || [];
+        // console.log(events);
+        setEvents(events);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.seatgeek.com/2/events?q=chance+the+rapper&client_id=MzM1Mzk0Nzh8MTY4MzU3NTg3NC4wMDAzMDUy`
+      )
+      .then(({ data }) => {
+        const other = data.events;
+        console.log(other);
+        setCompare(other);
+      });
+  }, []);
+
+  if (!events) {
+    return <div>loading</div>;
+  }
 
   return (
     <section className="homepage">
@@ -44,8 +62,19 @@ function Search() {
             <span>See Tickets</span>
           </div>
         </div>
+        {events.map((event) => {
+          return (
+            <Card
+              key={event.id}
+              date={event.dates.start.localDate}
+              time={event.dates.start.localTime || "TBD"}
+              venue={event._embedded.venues[0].name}
+              name={event.name}
+              price={event.priceRanges?.[0]}
+            />
+          );
+        })}
       </article>
-      {/* <Card /> */}
     </section>
   );
 }

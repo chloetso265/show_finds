@@ -1,28 +1,35 @@
 import "./Card.scss";
 import { Link } from "react-router-dom";
+import { format } from "date-fns";
 
-function Card({ shows }) {
-  //   console.log(shows.priceRanges[0].min);
+function Card({ date, time, venue, name, price = null }) {
+  //   const date = shows.dates.start.localDate;
+  //   console.log(date);
+  //   console.log(format(date, "yyyy/MM/dd"));
 
   return (
     <section className="show__cards">
-      <div className="homepage__shows">
+      <div className="show__info">
+        <h3>Ticketmaster</h3>
         <div>
-          <p>{shows.dates.start.localDate}</p>
-          <p>{shows.dates.start.localTime || "TBD"}</p>
+          <p>{date}</p>
+          <p>{time}</p>
         </div>
         <div>
-          <p>{shows._embedded.venues[0].name}</p>
-          <p>{shows.name}</p>
+          <p>{venue}</p>
+          <p>{name}</p>
         </div>
         <div>
-          {shows.priceRanges && (
+          {price && (
             <p>
-              ${shows.priceRanges[0].min} - ${shows.priceRanges[0].max}
+              ${price.min} - ${price.max}
             </p>
           )}
           {/* <span>See Tickets</span> */}
         </div>
+      </div>
+      <div className="show__info">
+        <h3>SeatGeek</h3>
       </div>
     </section>
   );
