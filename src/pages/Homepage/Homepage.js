@@ -2,6 +2,7 @@ import "./Homepage.scss";
 import Card from "../../components/Card/Card";
 import Bubble from "../../components/Bubble/Bubble";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const keyT = "YActy3kuBuQhgG62frGlgAfNjoVpXP73&attractionId=K8vZ9172T9V";
@@ -95,16 +96,18 @@ function Homepage() {
         {shows.map((show) => {
           return (
             <div className="homepage__trending">
-              <Card
-                key={show.id}
-                date={show.dates.start.localDate}
-                time={show.dates.start.localTime || "TBD"}
-                venue={show._embedded.venues[0].name}
-                // city={show._embedded.venues[0].city}
-                // state={show._embedded.venues[0].state.name}
-                name={show.name}
-                price={show.priceRanges?.[0]}
-              />
+              <Link to="/:id">
+                <Card
+                  key={show.id}
+                  date={show.dates.start.localDate}
+                  time={show.dates.start.localTime || "TBD"}
+                  venue={show._embedded.venues[0].name}
+                  // city={show._embedded.venues[0].city}
+                  // state={show._embedded.venues[0].state.name}
+                  name={show.name}
+                  price={show.priceRanges?.[0]}
+                />
+              </Link>
             </div>
           );
         })}

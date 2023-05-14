@@ -1,0 +1,26 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.compare {
+  margin: 1rem 1.5rem;
+  padding: 1rem;
+  border: 1px solid #d3c4be;
+  background-color: #fcfcfc;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px rgba(145, 145, 145, 0.7);
+
+  //   &:hover {
+  //     background-color: lightgrey;
+  //   }
+
+  &__info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 12%;
+    height: 2%;
+  }
+}

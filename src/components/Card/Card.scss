@@ -1,17 +1,23 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-a:hover {
-  background-color: yellow;
-}
+// a:hover {
+//   background-color: yellow;
+// }
 
 .show__cards {
   display: block;
-  border: 1px solid rgb(112, 150, 92);
+  background-color: #fcfcfc;
+  border: 1px solid #c4bdac;
   border-radius: 0.75rem;
+  //   box-shadow: 3px 3px 5px rgba(145, 145, 145, 0.7);
 
   @include tablet {
     margin: 1rem;
+  }
+
+  &:hover {
+    background-color: #efeeee;
   }
 }
 

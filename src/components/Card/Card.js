@@ -1,4 +1,5 @@
 import "./Card.scss";
+import Compare from "../Compare/Compare";
 import tkLogo from "../../assets/ticketmaster-logo.png";
 import sgLogo from "../../assets/Seatgeek_logo.png";
 import { Link } from "react-router-dom";
@@ -24,7 +25,7 @@ function Card({ date, time, venue, name, price = null }) {
         </div>
       </div>
       <div className="show__info">
-        <img className="show__tkLogo" src={tkLogo} />
+        {/* <img className="show__tkLogo" src={tkLogo} /> */}
         <div>
           {price && (
             <p>
@@ -34,12 +35,14 @@ function Card({ date, time, venue, name, price = null }) {
           {/* <span>See Tickets</span> */}
         </div>
       </div>
-      <div className="show__info">
+      {/* <div className="show__info">
         <img className="show__tkLogo" src={sgLogo} />
-        <p>Tickets Starting From : $140</p>
-        {/* {tkPrices !== null && <div ... ticketmaster prices stuff ... </div>}
+        <p>Tickets Starting From : $140</p> */}
+      {/* {tkPrices !== null && <div ... ticketmaster prices stuff ... </div>}
       {sgPrices !== null && <div ... seatgeek prices stuff ... </div>} */}
-      </div>
+      {/* </div> */}
+      <Compare image={tkLogo} price={price} />
+      <Compare image={sgLogo} price={price} />
     </section>
   );
 }
