@@ -37,28 +37,3 @@ a:visited {
     padding: 1.5rem;
   }
 }
-
-.collapsible {
-  background-color: lightgrey;
-  //   color: white;
-  cursor: pointer;
-  //   padding: 18px;
-  //   width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-.active,
-.collapsible:hover {
-  background-color: #555;
-}
-
-.content {
-  //   padding: 0 18px;
-  display: block;
-  overflow: hidden;
-  background-color: #f1f1f1;
-}

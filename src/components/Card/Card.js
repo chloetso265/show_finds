@@ -5,7 +5,7 @@ import sgLogo from "../../assets/Seatgeek_logo.png";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 
-function Card({ date, time, venue, name, price = null }) {
+function Card({ date, time, venue, name, price = null, image, city, state }) {
   //   console.log(date);
   //   console.log(format(date, "yyyy/MM/dd"));
   //   function date() {
@@ -15,13 +15,18 @@ function Card({ date, time, venue, name, price = null }) {
   return (
     <section className="show__cards">
       <div className="show__info">
-        <div className="show__details">
-          <p>{date}</p>
-          <p>{time}</p>
+        <div>
+          <img className="show__image" src={image} alt="show-banner" />
         </div>
         <div className="show__details">
           <p>{name}</p>
-          <p>{venue}</p>
+          <p>
+            {venue} - {city}, {state}
+          </p>
+        </div>
+        <div className="show__details">
+          <p>{date}</p>
+          <p>{time}</p>
         </div>
       </div>
       <div className="show__info">

@@ -31,3 +31,11 @@
 .show__tkLogo {
   width: 8rem;
 }
+
+.show {
+  &__image {
+    width: 12rem;
+    margin-top: 1rem;
+    border-radius: 0.75rem;
+  }
+}

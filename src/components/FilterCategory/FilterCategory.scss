@@ -1,0 +1,16 @@
+.filter-category {
+  background-color: yellow;
+
+  &__header {
+  }
+
+  &__content {
+    height: 0;
+    overflow: hidden;
+    background-color: yellow;
+
+    &--open {
+      height: auto;
+    }
+  }
+}

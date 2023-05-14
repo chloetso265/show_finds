@@ -12,7 +12,7 @@ const API_KEY = "YActy3kuBuQhgG62frGlgAfNjoVpXP73";
 
 function ShowPage() {
   const { id } = useParams();
-  const [show, setShow] = useState([]);
+  const [show, setShow] = useState(null);
 
   useEffect(() => {
     axios
@@ -41,8 +41,7 @@ function ShowPage() {
   if (!show) {
     return <div>loading</div>;
   }
-
-  //   console.log(show._embedded.venues[0].state.name);
+  console.log(show);
 
   return (
     <section className="showpage">
@@ -65,13 +64,13 @@ function ShowPage() {
               <p className="showpage__location">
                 {show._embedded.venues[0].name} -{" "}
                 {show._embedded.venues[0].city.name},{" "}
-                {show._embedded.venues[0].state.name}
+                {show._embedded.venues[0].state.stateCode}
               </p>
             </div>
           </div>
-          <div className="showpage__date">
-            <p>{show.dates.start.localDate}</p>
-            <p>{show.dates.start.localTime}</p>
+          <div className="showpage__info">
+            <p className="showpage__date">{show.dates.start.localDate}</p>
+            <p className="showpage__time">{show.dates.start.localTime}</p>
           </div>
         </div>
       </article>

@@ -1,6 +1,7 @@
 import "./Homepage.scss";
 import Card from "../../components/Card/Card";
 import Bubble from "../../components/Bubble/Bubble";
+import Filter from "../../components/Filter/Filter";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -12,6 +13,17 @@ const keyT = "YActy3kuBuQhgG62frGlgAfNjoVpXP73&attractionId=K8vZ9172T9V";
 function Homepage() {
   const [shows, setShows] = useState([]);
   const [artists, setArtists] = useState([]);
+  const [filters, setFilters] = useState([]);
+  const filteredShows = shows.filter((show) => {
+    if (filters.length === 0) {
+      return true;
+    } else {
+      return (
+        filters.includes(show._embedded.venues[0].state.name) ||
+        filters.includes(show.classifications[0].genre.name)
+      );
+    }
+  });
 
   useEffect(() => {
     axios
@@ -70,7 +82,8 @@ function Homepage() {
 
   return (
     <section className="homepage">
-      <article className="homepage__filter">
+      <Filter filters={filters} onFilter={setFilters} />
+      {/* <article className="homepage__filter">
         <p>Filter Section</p>
         <button type="button" class="collapsible">
           Location
@@ -86,24 +99,25 @@ function Homepage() {
         <div className="content">
           <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
           <label for="vehicle3"> Connecticut</label>
-          {/* <input type="submit" value="Submit" /> */}
+          <input type="submit" value="Submit" />
         </div>
         <h4>Genre</h4>
-      </article>
+      </article> */}
       <article className="homepage__main">
         <h2 className="homepage__title">Trending Now</h2>
         {/* <Card shows={shows} /> */}
-        {shows.map((show) => {
+        {filteredShows.map((show) => {
           return (
             <div className="homepage__trending">
               <Link to={`/${show.id}`}>
                 <Card
                   key={show.id}
+                  image={show.images[0].url}
                   date={show.dates.start.localDate}
                   time={show.dates.start.localTime || "TBD"}
                   venue={show._embedded.venues[0].name}
-                  // city={show._embedded.venues[0].city}
-                  // state={show._embedded.venues[0].state.name}
+                  city={show._embedded.venues[0].city.name}
+                  state={show._embedded.venues[0].state.name}
                   name={show.name}
                   price={show.priceRanges?.[0]}
                 />

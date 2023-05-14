@@ -15,7 +15,8 @@
   }
 
   &__banner {
-    width: 13rem;
+    width: 15rem;
+    border-radius: 0.35rem;
   }
 
   &__name {
@@ -24,5 +25,11 @@
 
   &__location {
     padding: 0 10rem 0 3rem;
+  }
+
+  &__info {
+    border: 1px solid black;
+    border-radius: 0.35rem;
+    padding: 1rem;
   }
 }
