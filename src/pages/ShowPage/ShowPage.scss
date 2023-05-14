@@ -1,0 +1,28 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.showpage {
+  margin: 1rem 1.5rem;
+  padding: 1rem;
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__heading {
+    display: flex;
+  }
+
+  &__banner {
+    width: 13rem;
+  }
+
+  &__name {
+    padding: 0 10rem 0 3rem;
+  }
+
+  &__location {
+    padding: 0 10rem 0 3rem;
+  }
+}

@@ -96,7 +96,7 @@ function Homepage() {
         {shows.map((show) => {
           return (
             <div className="homepage__trending">
-              <Link to="/:id">
+              <Link to={`/${show.id}`}>
                 <Card
                   key={show.id}
                   date={show.dates.start.localDate}
