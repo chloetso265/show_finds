@@ -1,6 +1,6 @@
 import "./Card.scss";
 import tkLogo from "../../assets/ticketmaster-logo.png";
-// import sgLogo from "../../assets/Seatgeek_logo.svg";
+import sgLogo from "../../assets/Seatgeek_logo.png";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 
@@ -35,7 +35,7 @@ function Card({ date, time, venue, name, price = null }) {
         </div>
       </div>
       <div className="show__info">
-        {/* <img src={sgLogo} /> */}
+        <img className="show__tkLogo" src={sgLogo} />
         <p>Tickets Starting From : $140</p>
         {/* {tkPrices !== null && <div ... ticketmaster prices stuff ... </div>}
       {sgPrices !== null && <div ... seatgeek prices stuff ... </div>} */}
