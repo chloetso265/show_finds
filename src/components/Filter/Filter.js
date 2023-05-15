@@ -5,13 +5,19 @@ import FilterCategory from "../../components/FilterCategory/FilterCategory";
 // import axios from "axios";
 import { useState, useEffect } from "react";
 const locationsData = [
-  "Alabama",
-  "Arkansas",
-  "Utah",
-  "Illinois",
   "California",
-  "Wisconsin",
   "Florida",
+  "Georgia",
+  "Illinois",
+  "Maryland",
+  "Michigan",
+  "Nevada",
+  "New York",
+  "Oregon",
+  "Tennessee",
+  "Texas",
+  "Utah",
+  "Washington",
 ];
 
 const genresData = [
@@ -21,7 +27,7 @@ const genresData = [
   "Alternative",
   "Country",
   "Dubstep",
-  "Hip-Hop",
+  "Hip-Hop/Rap",
   "Funk",
   "Disco",
 ];
@@ -35,13 +41,19 @@ function Filter({ filters, onFilter }) {
     }
   }
 
-  console.log(filters);
+  //   console.log(filters);
   return (
-    <section className="showpage">
-      <article className="homepage__filter">
+    <section className="homepage__filter">
+      <article className="homepage__filter-section">
+        <p className="homepage__filter-title">Filter By:</p>
         <FilterCategory
           name={"Location"}
           options={locationsData}
+          onFilter={checkedOption}
+        />
+        <FilterCategory
+          name={"Genre"}
+          options={genresData}
           onFilter={checkedOption}
         />
       </article>

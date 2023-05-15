@@ -40,11 +40,11 @@ function Homepage() {
   useEffect(() => {
     axios
       .get(
-        `https://app.ticketmaster.com/discovery/v2/attractions.json?apikey=${keyT}`
+        `https://app.ticketmaster.com/discovery/v2/attractions.json?classificationName=music&countryCode=US&apikey=YActy3kuBuQhgG62frGlgAfNjoVpXP73`
       )
       .then((result) => {
         const artistsArray = result.data._embedded.attractions;
-        // console.log(artistsArray);
+        console.log(artistsArray);
         setArtists(artistsArray);
       });
   }, []);

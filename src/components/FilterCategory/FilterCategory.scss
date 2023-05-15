@@ -1,16 +1,35 @@
 .filter-category {
-  background-color: yellow;
+  background-color: #dfe5e2;
+  margin: 0.5rem 1rem;
+  //   padding: 1rem;
+  border-radius: 0.35rem;
 
   &__header {
+    background-color: #fcfcfc;
+    border-radius: 0.35rem;
+  }
+
+  &__title {
+    margin: 0rem;
+    padding: 0.5rem 2rem;
+    text-align: center;
   }
 
   &__content {
     height: 0;
     overflow: hidden;
-    background-color: yellow;
+    // background-color: green;
 
     &--open {
       height: auto;
     }
+  }
+
+  &__options {
+    padding: 0.35rem 0.5rem;
+  }
+
+  &__option {
+    padding-left: 0.35rem;
   }
 }

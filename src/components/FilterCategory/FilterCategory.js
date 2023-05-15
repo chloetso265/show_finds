@@ -13,7 +13,7 @@ function FilterCategory({ name, options, onFilter }) {
   return (
     <section className="filter-category">
       <div className="filter-category__header" onClick={clickOpen}>
-        <h4>{name}</h4>
+        <h4 className="filter-category__title">{name}</h4>
       </div>
       <div
         className={`filter-category__content ${
@@ -22,14 +22,16 @@ function FilterCategory({ name, options, onFilter }) {
       >
         {options.map((option) => {
           return (
-            <div className="content">
+            <div className="filter-category__options">
               <input
                 type="checkbox"
                 id={option}
                 name={option}
                 onChange={() => onFilter(option)}
               />
-              <label for={option}>{option}</label>
+              <label htmlFor={option} className="filter-category__option">
+                {option}
+              </label>
             </div>
           );
         })}
