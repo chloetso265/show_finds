@@ -5,6 +5,7 @@ import FilterCategory from "../../components/FilterCategory/FilterCategory";
 // import axios from "axios";
 import { useState, useEffect } from "react";
 const locationsData = [
+  "Arizona",
   "California",
   "Florida",
   "Georgia",
@@ -21,15 +22,17 @@ const locationsData = [
 ];
 
 const genresData = [
-  "Pop",
-  "Rock",
-  "Indie",
   "Alternative",
   "Country",
-  "Dubstep",
-  "Hip-Hop/Rap",
-  "Funk",
   "Disco",
+  "Electronic",
+  "Funk",
+  "Hip-Hop",
+  "Indie",
+  "Latin",
+  "Pop",
+  "R&B",
+  "Rock",
 ];
 
 function Filter({ filters, onFilter }) {

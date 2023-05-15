@@ -7,8 +7,10 @@ function Compare({ image, price = null }) {
     <section className="compare">
       <div className="compare__info">
         <img className="compare__logo" src={image} />
-        <p>{/* ${price.min} - ${price.max} */}</p>
-        <p>$35.50 - $195.50</p>
+        <p>
+          ${price.min} - ${price.max}
+        </p>
+        {/* <p>$35.50 - $195.50</p> */}
       </div>
       <div className="compare__sg">
         {/* {tkPrices !== null && <div ... ticketmaster prices stuff ... </div>}

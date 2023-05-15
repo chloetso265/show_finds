@@ -6,6 +6,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+const API_KEY = "YActy3kuBuQhgG62frGlgAfNjoVpXP73";
 const keyT = "YActy3kuBuQhgG62frGlgAfNjoVpXP73&attractionId=K8vZ9172T9V";
 // const keySG1 = "MzM1Mzk0Nzh8MTY4MzU3NTg3NC4wMDAzMDUy";
 // const keySG2 = "4c67cb3e5e9786e5f12564093697f299670af7840019b7416cb4bada2e86e322";
@@ -28,7 +29,8 @@ function Homepage() {
   useEffect(() => {
     axios
       .get(
-        `https://app.ticketmaster.com/discovery/v2/events?apikey=${keyT}&locale=*`
+        `https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=${API_KEY}`
+        // `https://app.ticketmaster.com/discovery/v2/events?apikey=${keyT}&locale=*`
       )
       .then((result) => {
         const showsArray = result.data._embedded.events;
@@ -44,7 +46,7 @@ function Homepage() {
       )
       .then((result) => {
         const artistsArray = result.data._embedded.attractions;
-        console.log(artistsArray);
+        // console.log(artistsArray);
         setArtists(artistsArray);
       });
   }, []);
@@ -125,11 +127,12 @@ function Homepage() {
             </div>
           );
         })}
-        <h2>Discover</h2>
-        {/* <Bubble /> */}
-        {artists.map((artist) => {
-          return <Bubble artists={artist} />;
-        })}
+        <h2 className="homepage__title">Discover</h2>
+        <section className="artists">
+          {artists.map((artist) => {
+            return <Bubble artists={artist} />;
+          })}
+        </section>
       </article>
     </section>
   );

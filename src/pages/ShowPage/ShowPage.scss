@@ -8,6 +8,8 @@
   &__details {
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid #24281b;
+    padding-bottom: 2rem;
   }
 
   &__heading {
@@ -30,6 +32,39 @@
   &__info {
     border: 1px solid black;
     border-radius: 0.35rem;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  &__prices {
+    margin: 1rem 0;
+    padding: 1rem 0;
+  }
+
+  &__vendors {
+    // border: 1px solid #24281b;
+    margin: 1rem;
+  }
+
+  &__tk {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: 1px solid #24281b;
+    margin: 1rem;
+    padding: 1rem 0;
+  }
+
+  &__logo {
+    // width: 8rem;
+    height: 2rem;
+  }
+
+  &__button {
+    border: 1px solid #24281b;
+    background-color: #24281b;
+    color: white;
+    font-weight: bold;
+    border-radius: 0.35rem;
+    padding: 0.75rem 3rem;
   }
 }

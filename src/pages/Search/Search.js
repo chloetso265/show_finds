@@ -40,7 +40,7 @@ function Search() {
     return <div>loading</div>;
   }
 
-  console.log(compare[0].datetime_local);
+  //   console.log(compare[0].datetime_local);
 
   return (
     <section className="homepage">
