@@ -11,7 +11,7 @@ const API_KEY = "YActy3kuBuQhgG62frGlgAfNjoVpXP73";
 
 function ArtistPage() {
   const { artistId } = useParams();
-  const [artists, setArtists] = useState([]);
+  const [artist, setArtist] = useState(null);
 
   useEffect(() => {
     axios
@@ -20,20 +20,22 @@ function ArtistPage() {
         // `https://app.ticketmaster.com/discovery/v2/events?attractionId=K8vZ9175rX7&apikey=YActy3kuBuQhgG62frGlgAfNjoVpXP73`
       )
       .then((result) => {
-        const artistsArray = result.data;
-        console.log(artistsArray);
-        setArtists(artistsArray);
+        const artistArray = result.data;
+        console.log("Response: ", artistArray);
+        setArtist(artistArray);
       });
   }, []);
 
-  if (!artists) {
+  if (!artist) {
     return <div>loading</div>;
   }
-  console.log(artists);
+  //   console.log(artist);
 
   return (
     <section className="showpage">
       <h2> Testing</h2>
+      <p>{artist._embedded.events?.[0].name}</p>
+      {/* <p>{artist._embedded.events[0].id}</p> */}
       {/* <article className="showpage__section">
         <div className="showpage__details">
           <div className="showpage__heading">

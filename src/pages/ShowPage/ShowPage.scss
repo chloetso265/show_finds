@@ -50,10 +50,6 @@
     border-radius: 0.35rem;
     margin: 1rem 0;
     padding: 1rem 2rem;
-
-    // &:hover {
-    //   background-color: #b1b5ad;
-    // }
   }
 
   &__logo {
@@ -67,5 +63,9 @@
     font-weight: bold;
     border-radius: 0.35rem;
     padding: 0.75rem 2.5rem;
+
+    &:hover {
+      background-color: #7a7f72;
+    }
   }
 }

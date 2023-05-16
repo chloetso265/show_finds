@@ -1,44 +1,45 @@
 import "./Search.scss";
 import Card from "../../components/Card/Card";
-// import { Link } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
 const BASE_URL = "https://app.ticketmaster.com/discovery/v2/events.json";
 const API_KEY = "YActy3kuBuQhgG62frGlgAfNjoVpXP73";
 const CLIENT_KEY = "MzM1Mzk0Nzh8MTY4MzU3NTg3NC4wMDAzMDUy";
-const keyword = "chance the rapper";
 // console.log(`${BASE_URL}?keyword=${keyword}&apikey=${API_KEY}`);
 
 function Search() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [events, setEvents] = useState([]);
-  const [compare, setCompare] = useState([]);
+  console.log("Params: ", searchParams.get("query"));
+  const keyword = searchParams.get("query");
 
   useEffect(() => {
     axios
       .get(`${BASE_URL}?keyword=${keyword}&apikey=${API_KEY}`)
       .then(({ data }) => {
         const events = data?._embedded?.events || [];
-        // console.log(events);
+        console.log(events);
         setEvents(events);
       });
   }, []);
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.seatgeek.com/2/events?q=chance+the+rapper&client_id=MzM1Mzk0Nzh8MTY4MzU3NTg3NC4wMDAzMDUy`
-      )
-      .then(({ data }) => {
-        const compare = data.events;
-        console.log(compare);
-        setCompare(compare);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       `https://api.seatgeek.com/2/events?q=chance+the+rapper&client_id=MzM1Mzk0Nzh8MTY4MzU3NTg3NC4wMDAzMDUy`
+  //     )
+  //     .then(({ data }) => {
+  //       const compare = data.events;
+  //       console.log(compare);
+  //       setCompare(compare);
+  //     });
+  // }, []);
 
-  if (!events || !compare) {
-    return <div>loading</div>;
-  }
+  // if (!events || !compare) {
+  //   return <div>loading</div>;
+  // }
 
   //   console.log(compare[0].datetime_local);
 
@@ -50,7 +51,7 @@ function Search() {
         <h4>Discover</h4>
         <h4>Recommended</h4>
       </article>
-      <article className="homepage__main">
+      {/* <article className="homepage__main">
         {events.map((event) => {
           return (
             <Card
@@ -78,7 +79,7 @@ function Search() {
             </span>
           </div>
         </div>
-      </article>
+      </article> */}
     </section>
   );
 }

@@ -27,7 +27,9 @@
   }
 
   &__name {
+    position: relative;
     text-align: center;
     padding: 3rem 0;
+    color: #fcfcfc;
   }
 }

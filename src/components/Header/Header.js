@@ -1,9 +1,21 @@
 import "./Header.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import account from "../../assets/account.png";
 
 function Header() {
+  const navigate = useNavigate();
+  const handleSearch = (event) => {
+    if (event.key === "Enter") {
+      navigate({
+        pathname: "/search",
+        search: "?query=" + event.target.value,
+      });
+    }
+    navigate("/search");
+    console.log("What is ", event.target.value);
+  };
+
   return (
     <header className="header">
       <section className="header__section">
@@ -20,6 +32,7 @@ function Header() {
               name="search"
               type="search"
               placeholder="Search..."
+              onKeyDown={handleSearch}
             ></input>
           </form>
           <img className="header__image" src={account} alt="user-icon" />

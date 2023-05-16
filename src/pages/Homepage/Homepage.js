@@ -65,7 +65,7 @@ function Homepage() {
         {filteredShows.map((show) => {
           return (
             <div className="homepage__trending">
-              <Link to={`/${show.id}`}>
+              <Link to={`/shows/${show.id}`}>
                 <Card
                   key={show.id}
                   image={show.images[0].url}
@@ -85,7 +85,7 @@ function Homepage() {
         <div className="artists">
           {artists.map((artist) => {
             return (
-              <Link to={`/${artist.id}`}>
+              <Link to={`/artists/${artist.id}`}>
                 <Bubble key={artist.id} artists={artist} />
               </Link>
             );

@@ -14,9 +14,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/?:keyword" element={<Search />} />
-          <Route path="/:showId" element={<ShowPage />} />
-          <Route path="/:artistId" element={<ArtistPage />} />
+          <Route path="/search/" element={<Search />} />
+          <Route path="/shows/:showId" element={<ShowPage />} />
+          <Route path="/artists/:artistId" element={<ArtistPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
