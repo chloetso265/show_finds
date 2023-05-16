@@ -14,14 +14,14 @@ function Header() {
           <h1 className="header__title">Show Finds</h1>
         </div>
         <div className="header__right">
-          <Link to="/search">
+          <form>
             <input
               className="header__search"
               name="search"
               type="search"
               placeholder="Search..."
             ></input>
-          </Link>
+          </form>
           <img className="header__image" src={account} alt="user-icon" />
         </div>
       </section>

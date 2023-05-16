@@ -10,15 +10,6 @@ a:visited {
 .homepage {
   display: flex;
 
-  &__filter {
-    display: none;
-
-    @include tablet {
-      padding: $mobile-padding;
-      display: block;
-    }
-  }
-
   &__main {
     flex-grow: 1;
   }

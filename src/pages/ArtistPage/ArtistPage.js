@@ -1,5 +1,4 @@
-import "./ShowPage.scss";
-// import Card from "../../components/Card/Card";
+import "./ArtistPage.scss";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -9,45 +8,33 @@ import sgLogo from "../../assets/Seatgeek_logo.png";
 // const BASE_URL = "https://app.ticketmaster.com/discovery/v2/events.json";
 const API_KEY = "YActy3kuBuQhgG62frGlgAfNjoVpXP73";
 // const CLIENT_KEY = "MzM1Mzk0Nzh8MTY4MzU3NTg3NC4wMDAzMDUy";
-// const keyword = "chance the rapper";
-// console.log(`${BASE_URL}?keyword=${keyword}&apikey=${API_KEY}`);
 
-function ShowPage() {
-  const { showId } = useParams();
-  const [show, setShow] = useState(null);
+function ArtistPage() {
+  const { artistId } = useParams();
+  const [artists, setArtists] = useState([]);
 
   useEffect(() => {
     axios
       .get(
-        `https://app.ticketmaster.com/discovery/v2/events/${showId}?apikey=${API_KEY}`
+        `https://app.ticketmaster.com/discovery/v2/events?attractionId=${artistId}&apikey=${API_KEY}`
+        // `https://app.ticketmaster.com/discovery/v2/events?attractionId=K8vZ9175rX7&apikey=YActy3kuBuQhgG62frGlgAfNjoVpXP73`
       )
       .then((result) => {
-        const show = result.data || [];
-        console.log(show);
-        setShow(show);
+        const artistsArray = result.data;
+        console.log(artistsArray);
+        setArtists(artistsArray);
       });
   }, []);
 
-  //   useEffect(() => {
-  //     axios
-  //       .get(
-  //         `https://api.seatgeek.com/2/events?q=chance+the+rapper&client_id=MzM1Mzk0Nzh8MTY4MzU3NTg3NC4wMDAzMDUy`
-  //       )
-  //       .then(({ data }) => {
-  //         const compare = data.events;
-  //         console.log(compare);
-  //         setCompare(compare);
-  //       });
-  //   }, []);
-
-  if (!show) {
+  if (!artists) {
     return <div>loading</div>;
   }
-  //   console.log(show);
+  console.log(artists);
 
   return (
     <section className="showpage">
-      <article className="showpage__section">
+      <h2> Testing</h2>
+      {/* <article className="showpage__section">
         <div className="showpage__details">
           <div className="showpage__heading">
             <img
@@ -96,9 +83,9 @@ function ShowPage() {
             </a>
           </div>
         </div>
-      </article>
+      </article> */}
     </section>
   );
 }
 
-export default ShowPage;
+export default ArtistPage;

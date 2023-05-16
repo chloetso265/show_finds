@@ -10,7 +10,7 @@ function Bubble({ artists }) {
   return (
     <article className="artists__info">
       <div className="artists__photo">
-        <img className="artists__image" src={artists.images[9].url}></img>
+        <img className="artists__image" src={artists.images[1].url}></img>
         <h3 className="artists__name">{artists.name}</h3>
       </div>
       {/* <div className="artists__photo">

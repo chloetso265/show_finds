@@ -3,7 +3,6 @@
 
 .header {
   padding: $mobile-padding;
-  // position: fixed;
 
   &__section {
     display: flex;
@@ -59,7 +58,7 @@
 
   &__image {
     width: 3rem;
-    background-color: rgb(221, 220, 220);
+    background-color: white;
     border-radius: 10rem;
     margin-left: 1rem;
   }

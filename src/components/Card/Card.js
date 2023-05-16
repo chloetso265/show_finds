@@ -13,41 +13,41 @@ function Card({ date, time, venue, name, price = null, image, city, state }) {
   //   }
 
   return (
-    <section className="show__cards">
-      <div className="show__info">
+    <section className="cards">
+      <article className="cards__info">
         <div>
-          <img className="show__image" src={image} alt="show-banner" />
+          <img className="cards__image" src={image} alt="show-banner" />
         </div>
-        <div className="show__details">
+        <div className="cards__details">
           <p>{name}</p>
           <p>
             {venue} - {city}, {state}
           </p>
         </div>
-        <div className="show__details">
+        <div>
           <p>{date}</p>
           <p>{time}</p>
         </div>
-      </div>
-      <div className="show__info">
-        {/* <img className="show__tkLogo" src={tkLogo} /> */}
+      </article>
+      {/* <div className="show__info">
         <div>
           {price && (
             <p>
               ${price.min} - ${price.max}
             </p>
           )}
-          {/* <span>See Tickets</span> */}
         </div>
-      </div>
-      {/* <div className="show__info">
+      </div> */}
+      <article className="cards__details">
+        {/* <div className="show__info">
         <img className="show__tkLogo" src={sgLogo} />
         <p>Tickets Starting From : $140</p> */}
-      {/* {tkPrices !== null && <div ... ticketmaster prices stuff ... </div>}
+        {/* {tkPrices !== null && <div ... ticketmaster prices stuff ... </div>}
       {sgPrices !== null && <div ... seatgeek prices stuff ... </div>} */}
-      {/* </div> */}
-      <Compare image={tkLogo} price={price} />
-      <Compare image={sgLogo} price={price} />
+        {/* </div> */}
+        <Compare image={tkLogo} price={price} />
+        <Compare image={sgLogo} price={price} />
+      </article>
     </section>
   );
 }

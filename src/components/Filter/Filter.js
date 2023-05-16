@@ -14,6 +14,7 @@ const locationsData = [
   "Michigan",
   "Nevada",
   "New York",
+  "New Jersey",
   "Oregon",
   "Tennessee",
   "Texas",
