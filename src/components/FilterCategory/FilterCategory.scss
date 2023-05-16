@@ -1,13 +1,13 @@
 .filter-category {
   background-color: #dfe5e2;
   margin: 0.5rem 1rem;
-  //   padding: 1rem;
   border-radius: 0.35rem;
 
   &__header {
     background-color: #24281b;
     color: #fcfcfc;
     border-radius: 0.35rem;
+    cursor: pointer;
   }
 
   &__title {
@@ -19,7 +19,6 @@
   &__content {
     height: 0;
     overflow: hidden;
-    // background-color: green;
 
     &--open {
       height: auto;

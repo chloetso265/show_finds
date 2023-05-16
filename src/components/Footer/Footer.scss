@@ -1,0 +1,21 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.footer {
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fcfcfc;
+  text-align: center;
+
+  &__title {
+    margin: 0.25rem;
+  }
+
+  &__text {
+    font-size: 0.75rem;
+    margin: 0.5rem;
+  }
+}

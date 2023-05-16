@@ -1,16 +1,11 @@
 import "./ShowPage.scss";
-// import Card from "../../components/Card/Card";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import tkLogo from "../../assets/ticketmaster-logo.png";
 import sgLogo from "../../assets/Seatgeek_logo.png";
 
-// const BASE_URL = "https://app.ticketmaster.com/discovery/v2/events.json";
 const API_KEY = "YActy3kuBuQhgG62frGlgAfNjoVpXP73";
-// const CLIENT_KEY = "MzM1Mzk0Nzh8MTY4MzU3NTg3NC4wMDAzMDUy";
-// const keyword = "chance the rapper";
-// console.log(`${BASE_URL}?keyword=${keyword}&apikey=${API_KEY}`);
 
 function ShowPage() {
   const { showId } = useParams();
@@ -43,7 +38,6 @@ function ShowPage() {
   if (!show) {
     return <div>loading</div>;
   }
-  //   console.log(show);
 
   return (
     <section className="showpage">

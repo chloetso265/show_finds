@@ -42,23 +42,22 @@
     padding: 1rem 0;
   }
 
-  &__vendors {
-    // border: 1px solid #24281b;
-    margin: 1rem;
-  }
-
   &__tk {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid $dark-green;
-    margin: 1rem;
-    padding: 1rem 0;
+    border: 1px solid #c4bdac;
+    border-radius: 0.35rem;
+    margin: 1rem 0;
+    padding: 1rem 2rem;
+
+    // &:hover {
+    //   background-color: #b1b5ad;
+    // }
   }
 
   &__logo {
-    // width: 8rem;
-    height: 2rem;
+    width: 8rem;
   }
 
   &__button {
@@ -67,6 +66,6 @@
     color: white;
     font-weight: bold;
     border-radius: 0.35rem;
-    padding: 0.75rem 3rem;
+    padding: 0.75rem 2.5rem;
   }
 }
