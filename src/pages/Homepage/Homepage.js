@@ -29,7 +29,7 @@ function Homepage() {
   useEffect(() => {
     axios
       .get(
-        `https://app.ticketmaster.com/discovery/v2/events.json?sort=random&countryCode=US&apikey=${API_KEY}`
+        `https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=${API_KEY}`
         // `https://app.ticketmaster.com/discovery/v2/events?apikey=${keyT}&locale=*`
       )
       .then((result) => {
