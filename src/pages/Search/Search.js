@@ -1,6 +1,6 @@
 import "./Search.scss";
 import Card from "../../components/Card/Card";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -17,7 +17,7 @@ function Search() {
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}?keyword=${keyword}&apikey=${API_KEY}`)
+      .get(`${BASE_URL}?keyword=${keyword}&countryCode=US&apikey=${API_KEY}`)
       .then(({ data }) => {
         const events = data?._embedded?.events || [];
         console.log(events);
@@ -37,11 +37,11 @@ function Search() {
   //     });
   // }, []);
 
-  // if (!events || !compare) {
-  //   return <div>loading</div>;
-  // }
+  if (events.length === 0) {
+    return <div>loading</div>;
+  }
 
-  //   console.log(compare[0].datetime_local);
+  // console.log("This is ", events);
 
   return (
     <section className="homepage">
@@ -51,6 +51,32 @@ function Search() {
         <h4>Discover</h4>
         <h4>Recommended</h4>
       </article>
+      <div>
+        <p>{events[0].name}</p>
+        {/* <p>
+          {events[0].priceRanges &&
+            `${events[0].priceRanges[0].min}- ${events[0].priceRanges[0].max} `}
+        </p> */}
+        {events.map((event) => {
+          return (
+            <div className="homepage__trending">
+              <Link to={`/shows/${event.id}`}>
+                <Card
+                  key={event.id}
+                  image={event.images[0].url}
+                  date={event.dates.start.localDate}
+                  time={event.dates.start.localTime || "TBD"}
+                  venue={event._embedded.venues[0].name}
+                  city={event._embedded.venues[0].city.name}
+                  state={event._embedded.venues[0].state.name}
+                  name={event.name}
+                  price={event.priceRanges?.[0]}
+                />
+              </Link>
+            </div>
+          );
+        })}
+      </div>
       {/* <article className="homepage__main">
         {events.map((event) => {
           return (

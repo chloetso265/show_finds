@@ -38,16 +38,21 @@ function Card({ date, time, venue, name, price = null, image, city, state }) {
           )}
         </div>
       </div> */}
-      <article className="cards__details">
-        {/* <div className="show__info">
+
+      {/* <div className="show__info">
         <img className="show__tkLogo" src={sgLogo} />
         <p>Tickets Starting From : $140</p> */}
-        {/* {tkPrices !== null && <div ... ticketmaster prices stuff ... </div>}
+      {/* {tkPrices !== null && <div ... ticketmaster prices stuff ... </div>}
       {sgPrices !== null && <div ... seatgeek prices stuff ... </div>} */}
-        {/* </div> */}
-        <Compare image={tkLogo} price={price} />
-        <Compare image={sgLogo} price={price} />
-      </article>
+      {/* </div> */}
+      {price ? (
+        <article className="cards__details">
+          <Compare image={tkLogo} price={price} />
+          <Compare image={sgLogo} price={price} />
+        </article>
+      ) : (
+        <>No Prices Available</>
+      )}
     </section>
   );
 }
