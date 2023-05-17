@@ -2,6 +2,7 @@ import "./ArtistPage.scss";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+// import Filter from "../../components/Filter/Filter";
 import tkLogo from "../../assets/ticketmaster-logo.png";
 import sgLogo from "../../assets/Seatgeek_logo.png";
 
@@ -17,7 +18,6 @@ function ArtistPage() {
     axios
       .get(
         `https://app.ticketmaster.com/discovery/v2/events?attractionId=${artistId}&apikey=${API_KEY}`
-        // `https://app.ticketmaster.com/discovery/v2/events?attractionId=K8vZ9175rX7&apikey=YActy3kuBuQhgG62frGlgAfNjoVpXP73`
       )
       .then((result) => {
         const artistArray = result.data;

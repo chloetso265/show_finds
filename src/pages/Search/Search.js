@@ -52,7 +52,6 @@ function Search() {
         <h4>Recommended</h4>
       </article>
       <div>
-        <p>{events[0].name}</p>
         {/* <p>
           {events[0].priceRanges &&
             `${events[0].priceRanges[0].min}- ${events[0].priceRanges[0].max} `}

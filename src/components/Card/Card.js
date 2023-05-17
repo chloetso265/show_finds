@@ -51,7 +51,7 @@ function Card({ date, time, venue, name, price = null, image, city, state }) {
           <Compare image={sgLogo} price={price} />
         </article>
       ) : (
-        <>No Prices Available</>
+        <article className="cards__details2">Pricing Unavailable</article>
       )}
     </section>
   );
