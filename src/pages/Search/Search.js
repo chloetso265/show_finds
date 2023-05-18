@@ -1,18 +1,30 @@
 import "./Search.scss";
 import Card from "../../components/Card/Card";
+import Filter from "../../components/Filter/Filter";
 import { Link, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
 const BASE_URL = "https://app.ticketmaster.com/discovery/v2/events.json";
 const API_KEY = "YActy3kuBuQhgG62frGlgAfNjoVpXP73";
-const CLIENT_KEY = "MzM1Mzk0Nzh8MTY4MzU3NTg3NC4wMDAzMDUy";
+// const CLIENT_KEY = "MzM1Mzk0Nzh8MTY4MzU3NTg3NC4wMDAzMDUy";
 // console.log(`${BASE_URL}?keyword=${keyword}&apikey=${API_KEY}`);
 
 function Search() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [events, setEvents] = useState([]);
-  console.log("Params: ", searchParams.get("query"));
+  const [filters, setFilters] = useState([]);
+  const filteredShows = events.filter((event) => {
+    if (filters.length === 0) {
+      return true;
+    } else {
+      return (
+        filters.includes(event._embedded.venues[0].state?.name) ||
+        filters.includes(event.classifications[0].genre?.name)
+      );
+    }
+  });
+  // console.log("Params: ", searchParams.get("query"));
   const keyword = searchParams.get("query");
 
   useEffect(() => {
@@ -20,7 +32,7 @@ function Search() {
       .get(`${BASE_URL}?keyword=${keyword}&countryCode=US&apikey=${API_KEY}`)
       .then(({ data }) => {
         const events = data?._embedded?.events || [];
-        console.log(events);
+        // console.log(events);
         setEvents(events);
       });
   }, []);
@@ -45,65 +57,32 @@ function Search() {
 
   return (
     <section className="homepage">
-      <article>
-        <p>Filter Section</p>
-        <h4>Location</h4>
-        <h4>Genre</h4>
-      </article>
+      <Filter filters={filters} onFilter={setFilters} />
       <div>
-        {/* <p>
-          {events[0].priceRanges &&
-            `${events[0].priceRanges[0].min}- ${events[0].priceRanges[0].max} `}
-        </p> */}
-        {events.map((event) => {
+        {filteredShows.map((show) => {
           return (
             <div className="homepage__trending">
-              <Link to={`/shows/${event.id}`}>
+              <Link to={`/shows/${show.id}`}>
                 <Card
-                  key={event.id}
-                  image={event.images[0].url}
-                  date={event.dates.start.localDate}
-                  time={event.dates.start.localTime || "TBD"}
-                  venue={event._embedded.venues[0].name}
-                  city={event._embedded.venues[0].city.name}
-                  state={event._embedded.venues[0].state.name}
-                  name={event.name}
-                  price={event.priceRanges?.[0]}
+                  key={show.id}
+                  image={show.images[0].url}
+                  date={show.dates.start.localDate}
+                  time={show.dates.start.localTime || "TBD"}
+                  venue={show._embedded.venues[0]?.name}
+                  city={show._embedded.venues[0].city?.name}
+                  state={show._embedded.venues[0].state?.name}
+                  name={show.name}
+                  price={show.priceRanges?.[0]}
                 />
               </Link>
             </div>
           );
         })}
       </div>
-      {/* <article className="homepage__main">
-        {events.map((event) => {
-          return (
-            <Card
-              key={event.id}
-              date={event.dates.start.localDate}
-              time={event.dates.start.localTime || "TBD"}
-              venue={event._embedded.venues[0].name}
-              name={event.name}
-              price={event.priceRanges?.[0]}
-            />
-          );
-        })}
-        <div className="homepage__shows">
-          <div>
-            <p>{compare[0].datetime_local}</p>
-            <p>Sat - 8:00pm</p>
-          </div>
-          <div>
-            <p>{compare[0].venue.name}</p>
-            <p>{compare[0].short_title}</p>
-          </div>
-          <div>
-            <span>
-              Tickets Starting From : ${compare[0].stats.lowest_price}
-            </span>
-          </div>
-        </div>
-      </article> */}
+      {/* <p>
+          {events[0].priceRanges &&
+            `${events[0].priceRanges[0].min}- ${events[0].priceRanges[0].max} `}
+        </p> */}
     </section>
   );
 }

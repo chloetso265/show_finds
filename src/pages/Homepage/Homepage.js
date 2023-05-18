@@ -57,7 +57,7 @@ function Homepage() {
   //   console.log(shows._embedded.venues[0].name);
 
   return (
-    <section className="homepage">
+    <section className="search">
       <Filter filters={filters} onFilter={setFilters} />
       <article className="homepage__main">
         <h2 className="homepage__title">Trending Now</h2>
