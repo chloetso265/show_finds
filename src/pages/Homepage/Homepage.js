@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const API_KEY = "YActy3kuBuQhgG62frGlgAfNjoVpXP73";
-// const keyT = "YActy3kuBuQhgG62frGlgAfNjoVpXP73&attractionId=K8vZ9172T9V";
 // const keySG1 = "MzM1Mzk0Nzh8MTY4MzU3NTg3NC4wMDAzMDUy";
 // const keySG2 = "4c67cb3e5e9786e5f12564093697f299670af7840019b7416cb4bada2e86e322";
 

@@ -1,9 +1,6 @@
 import "./Filter.scss";
 import FilterCategory from "../../components/FilterCategory/FilterCategory";
-// import Card from "../../components/Card/Card";
-// import { useParams, Link } from "react-router-dom";
-// import axios from "axios";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 const locationsData = [
   "Arizona",
   "California",
