@@ -1,0 +1,17 @@
+.artist-page {
+  display: flex;
+  margin: 1rem;
+  //   padding: 0 0.25rem;
+
+  &-title {
+    padding-left: 1.2rem;
+    // color: #fcfcfc;
+  }
+
+  &-section {
+    margin: 1rem 0;
+    background-color: #b1b5ad;
+    border: 0.25px solid #24281b;
+    border-radius: 0.35rem;
+  }
+}

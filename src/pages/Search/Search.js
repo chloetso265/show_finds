@@ -47,9 +47,8 @@ function Search() {
     <section className="homepage">
       <article>
         <p>Filter Section</p>
-        <h4>Home</h4>
-        <h4>Discover</h4>
-        <h4>Recommended</h4>
+        <h4>Location</h4>
+        <h4>Genre</h4>
       </article>
       <div>
         {/* <p>

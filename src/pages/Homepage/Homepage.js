@@ -29,12 +29,11 @@ function Homepage() {
   useEffect(() => {
     axios
       .get(
-        `https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=${API_KEY}`
-        // `https://app.ticketmaster.com/discovery/v2/events?apikey=${keyT}&locale=*`
+        `https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&page=2&countryCode=US&apikey=${API_KEY}`
       )
       .then((result) => {
         const showsArray = result.data._embedded.events;
-        // console.log(showsArray);
+        console.log(showsArray);
         setShows(showsArray);
       });
   }, []);
@@ -46,7 +45,7 @@ function Homepage() {
       )
       .then((result) => {
         const artistsArray = result.data._embedded.attractions;
-        console.log(artistsArray);
+        // console.log(artistsArray);
         setArtists(artistsArray);
       });
   }, []);

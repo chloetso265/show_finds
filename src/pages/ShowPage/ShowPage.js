@@ -74,7 +74,7 @@ function ShowPage() {
               alt="ticketmaster-logo"
             />
             <p>
-              ${show.priceRanges[0].min} - {show.priceRanges[0].max}
+              ${show.priceRanges?.[0].min} - {show.priceRanges?.[0].max}
             </p>
             <a href={show.url}>
               <span className="showpage__button">Buy Tickets</span>
@@ -83,7 +83,7 @@ function ShowPage() {
           <div className="showpage__tk">
             <img className="showpage__logo" src={sgLogo} alt="seatgeek-logo" />
             <p>
-              ${show.priceRanges[0].min} - {show.priceRanges[0].max}
+              ${show.priceRanges?.[0].min} - {show.priceRanges?.[0].max}
             </p>
             <a href={show.url}>
               <span className="showpage__button">Buy Tickets</span>

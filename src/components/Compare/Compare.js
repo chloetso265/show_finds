@@ -1,5 +1,4 @@
 import "./Compare.scss";
-import { Link } from "react-router-dom";
 import { format } from "date-fns";
 
 function Compare({ image, price = null }) {
@@ -10,7 +9,6 @@ function Compare({ image, price = null }) {
         <p>
           ${price.min} - ${price.max}
         </p>
-        {/* <p>$35.50 - $195.50</p> */}
       </div>
       <div className="compare__sg">
         {/* {tkPrices !== null && <div ... ticketmaster prices stuff ... </div>}
